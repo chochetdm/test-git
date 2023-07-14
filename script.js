@@ -63,3 +63,22 @@ function imgAuto(){
     // console.log(index)
 }
 setInterval(imgAuto,5000)
+// p10 slider product
+const rightbtntwo = document.querySelector('.fa-chevron-circle-right-two')
+rightbtntwo.addEventListener("click",function(){
+    // console.log("OK")
+    index=index+1
+    if(index>imgNubertwo.length-1){
+        index=0
+    }
+    document.querySelector(".slider-product-one-content-items-content").style.right = index * 100+"%"
+})
+const leftbtntwo = document.querySelector('.fa-chevron-circle-left-two')
+leftbtntwo.addEventListener("click",function(){
+    index=index-1
+    if(index<=0){
+        index=imgNubertwo.length-1
+    }
+    document.querySelector(".slider-product-one-content-items-content").style.right = index * 100+"%"
+})
+const imgNubertwo  = document.querySelectorAll('.slider-product-one-content-items img')
