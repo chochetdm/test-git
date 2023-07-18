@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Register Form</title>
+    <style>
+        #txtFirst, #txtLast, #txtMail, #txtPhone {
+
+            width: 250px;
+        }
+    </style>
+    <script>
+        function kiemtra(){
+        //     //return false;
+               //I. kiểm tra first name
+        // Đọc dữ liệu 
+        var sFirst = document.getElementById("txtFirst").value;
+        var reFirst = /^[a-zA-Z0-9 ]+$/;///^[a-zA-Z0-9]/;/^[a-zA-Z0-9]+$/  
+        //  Kiểm tra lỗi
+        if(!reFirst.test(sFirst)){ // if(reName.test(sName)==false){}
+     
+        alert("Frist name can not left blank!")
+      
+        //II. Kiểm tra Last
+        document.getElementById("txtFirst").focus();
+        return false;
+        }
+        var sLast = document.getElementById("txtLast").value;
+        var reLast = /^[a-zA-Z0-9 ]+$/;///^[a-zA-Z0-9]/;/^[a-zA-Z0-9]+$/  
+        //  Kiểm tra lỗi
+        if(!reLast.test(sLast)){ // if(reName.test(sName)==false){}
+        alert("Last name can not left blank!")
+        document.getElementById("txtLast").focus();
+        return false;
+        }
+        // III. Kiểm tra email
+            var sMail = document.getElementById("txtMail").value;
+            var reMail = /^[a-zA-z0-9]\w+[@]\w+[.]\w{3}[.]\w{2}?$/; ///^[a-zA-z0-9]\w+[@]\w+[.]\w{3}$/
+            if((!reMail.test(sMail))){ 
+                alert("Email is invalid!");
+                document.getElementById("txtMail").focus();
+                return false;
+        }
+
+        //IV.    Kiêm tra sđt
+        var sPhone = document.getElementById("txtPhone").value;
+        var rePhone= /^\d{8,12}$/
+        if(!rePhone.test(sPhone)){ 
+            alert("Phone is invalid!");
+            document.getElementById("txtPhone").focus();
+            return false;
+    
+           }
+                    //2. tạo nội dung thông báo
+                    var message =[]; //var message = new Array();
+            message.push("your Infor");
+            message.push("----------------------");
+            message.push("user name: "+sFirst);
+            message.push("user name: "+sLast);
+            
+            var ID = document.getElementById("seCountry");
+            var i = ID.selectedIndex;
+            var sCountry = ID.options[i].value;
+            message.push("Country: "+ sCountry);
+
+
+           var sGender = document.getElementById("rGengder").value;
+           message.push("Gender: "+ sGender);
+            message.push("Email: "+ sMail);
+            message.push("Phone: "+ sPhone);
+            //3. Thông báo
+            alert(message.join("\n"));
+        }
+
+
+    </script>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            logo
+        </div>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="#">Ultilities</a>
+            <a href="#">Share</a>
+            <a href="#">Knowledge</a>
+            <a href="Register.html">SignUp</a>
+            <a href="#">SignIn</a>
+            <a href="#">AboutUs</a>
+        </div>
+    </header>
+    <section>
+        <h1>Register form</h1>
+        <form onsubmit="return kiemtra();">
+            <table width="100%">
+                <caption>Register Form</caption>
+                <tr>    
+                    <td align="right">First name</td>
+                    <td>
+                        <input id="txtFirst">
+                    </td>
+
+                </tr>
+                <tr>    
+                    <td align="right">Last name</td>
+                    <td>
+                        <input id="txtLast">
+                    </td>
+
+                </tr>
+                <tr>    
+                    <td align="right">Contry</td>
+                    <td>
+                        <select id="seCountry">
+                            <option value="Việt Nam">VietNam</option>
+                            <option value="Lào">Lao</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Thái Lan">ThaiLan</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>    
+                    <td align="right"> </td>
+                    <td>
+                        <input type="radio" id="redGender" name="redGender" checked value="male">Male
+                        <input type="radio" id="redGender" name="redGender" checked value="Female">Female
+                    </td>
+                </tr>
+                <tr>    
+                    <td align="right">Mail</td>
+                    <td>
+                        <input id="txtMail">
+                    </td>
+
+                </tr>
+                <tr>    
+                    <td align="right">Phone </td>
+                    <td>
+                        <input id="txtPhone">  
+                    </td>
+
+                </tr>
+                <tr>    
+                    <td align="right"> </td>
+                    <td>
+                        <input type="submit"> Register
+                        <input type="reset"> Login
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </form>
+
+    </section>
+
+    <footer>
+        @copy; By me. All rights Reserved.
+    </footer>
+</body>
+</html>
